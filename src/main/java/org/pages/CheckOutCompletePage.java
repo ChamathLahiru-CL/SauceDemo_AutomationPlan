@@ -7,7 +7,7 @@ public class CheckOutCompletePage {
 
     WebDriver driver;
 
-    public void CheckOutCompletePage(WebDriver driver){
+    public CheckOutCompletePage(WebDriver driver){
         this.driver = driver;
     }
 

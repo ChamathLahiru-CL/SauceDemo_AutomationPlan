@@ -7,7 +7,7 @@ public class CheckOutOverviewPage {
 
     WebDriver driver;
 
-    public void CheckOutOverviewPage(WebDriver driver){
+    public CheckOutOverviewPage(WebDriver driver){
         this.driver = driver;
     }
 
