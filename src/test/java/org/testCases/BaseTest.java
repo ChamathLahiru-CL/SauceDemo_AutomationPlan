@@ -28,7 +28,7 @@ public class BaseTest {
         driver = new ChromeDriver();
 
         // Set implicit wait for element visibility
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         // Maximize the browser window
         driver.manage().window().maximize();

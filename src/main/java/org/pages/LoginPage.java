@@ -18,8 +18,9 @@ public class LoginPage {
     private By loginBtn = By.id("login-button");
 
 //    ---Actions of the page---
-//    Input valid details
-    public void loginValid(String name, String pwd){
+
+//    Login to the account enter username and password
+    public void loginAccount(String name, String pwd){
         driver.findElement(username).sendKeys(name);
         driver.findElement(password).sendKeys(pwd);
     }
