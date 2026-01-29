@@ -1,5 +1,6 @@
 package org.testCases;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class HappyPath extends BaseTest{
@@ -16,8 +17,12 @@ public class HappyPath extends BaseTest{
         loginPage.loginAccount(uName,uPassword);
         loginPage.clickLoginBTN();
 
-        boolean check = productsPage.isHeaderVisible();
-        System.out.println("Header visibility: "+ check);
+        String urlProducts = productsPage.getCurrentUrl();
+        Assert.assertEquals(urlProducts, "https://www.saucedemo.com/inventory.html");
+
+        String headerProducts = productsPage.getHeaderText();
+        Assert.assertEquals(headerProducts, "Products");
+        System.out.println("User Login Successfully.");
 
         productsPage.addItemsToCart();
         productsPage.goToCart();
@@ -27,7 +32,14 @@ public class HappyPath extends BaseTest{
         checkOutPage.enterShippingAddress(fName,lName,pCode);
         checkOutPage.continuePayment();
 
+        String itemTotal = checkOutOverviewPage.getItemTotal();
+        Assert.assertTrue(itemTotal.contains("39.98"),"Total price is Incorrect!");
+        System.out.println("Item Total is correct:" + itemTotal);
         checkOutOverviewPage.finishPayment();
+
+        String successMSG = checkOutCompletePage.getSuccessMessage();
+        Assert.assertEquals(successMSG, "Thank you for your order!");
+        System.out.println("End-to-End (E2E) purchase flow Complete.");
 
         checkOutCompletePage.backHome();
 

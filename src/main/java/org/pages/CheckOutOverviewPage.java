@@ -13,6 +13,7 @@ public class CheckOutOverviewPage {
 
     private By cancelBtn = By.id("cancel");
     private By finishBtn = By.id("finish");
+    private By total = By.className("summary_subtotal_label");
 
     public void finishPayment(){
         driver.findElement(finishBtn).click();
@@ -20,6 +21,10 @@ public class CheckOutOverviewPage {
 
     public void cancelPayment(){
         driver.findElement(cancelBtn).click();
+    }
+
+    public String getItemTotal(){
+        return driver.findElement(total).getText();
     }
 
 }
