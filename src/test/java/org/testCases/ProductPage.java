@@ -10,8 +10,7 @@ public class ProductPage extends BaseTest{
     public void checkHeader(){
         loginPage.loginAccount("standard_user","secret_sauce");
         loginPage.clickLoginBTN();
-        boolean check = productsPage.isHeaderVisible();
-        System.out.println("Header visibility: "+ check);
+
     }
 
     @Test

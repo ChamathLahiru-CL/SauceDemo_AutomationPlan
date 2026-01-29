@@ -12,9 +12,14 @@ public class CheckOutCompletePage {
     }
 
     private By backHomeBtn = By.id("back-to-products");
+    private By successMsg = By.className("complete-header");
 
     public void backHome(){
         driver.findElement(backHomeBtn).click();
+    }
+
+    public String getSuccessMessage(){
+        return driver.findElement(successMsg).getText();
     }
 
 }

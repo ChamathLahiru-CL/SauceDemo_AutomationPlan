@@ -16,15 +16,21 @@ public class ProductsPage {
     private By sauceLBLight = By.id("add-to-cart-sauce-labs-bike-light");
     private By cart = By.id("shopping_cart_container");
 
-    public boolean isHeaderVisible(){
-        return driver.findElement(header).isDisplayed();
+    //Verify that the user login was successfully.
+    public String getHeaderText(){
+        return driver.findElement(header).getText();
+    }
+    public String getCurrentUrl(){
+        return driver.getCurrentUrl();
     }
 
+    //Add item to the Cart
     public void addItemsToCart(){
         driver.findElement(sauceLbBackpack).click();
         driver.findElement(sauceLBLight).click();
     }
 
+    //Go to the cart Page
     public void goToCart(){
         driver.findElement(cart).click();
     }

@@ -3,6 +3,7 @@ package org.testCases;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.pages.*;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import java.time.Duration;
@@ -44,5 +45,11 @@ public class BaseTest {
         checkOutPage = new CheckOutPage(driver);
         checkOutOverviewPage = new CheckOutOverviewPage(driver);
 
+    }
+
+    @AfterTest
+    public void tearDown(){
+        // Close browser
+        driver.quit();
     }
 }
