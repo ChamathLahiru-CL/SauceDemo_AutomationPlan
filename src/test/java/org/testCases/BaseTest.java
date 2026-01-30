@@ -34,13 +34,9 @@ public class BaseTest {
     @BeforeTest
     public void beforeTest(){
 
-        // Launch Chrome Driver
+
         driver = new ChromeDriver();
-
-        // Set implicit wait for element visibility
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        // Maximize the browser window
         driver.manage().window().maximize();
 
         // Navigate to the SauceDemo website
