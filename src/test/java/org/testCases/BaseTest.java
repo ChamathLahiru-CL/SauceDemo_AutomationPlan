@@ -6,6 +6,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.pages.*;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -34,8 +35,10 @@ public class BaseTest {
     @BeforeTest
     public void beforeTest(){
 
-
-        driver = new ChromeDriver();
+        //create chrome options-incognito because clear cache give
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--incognito");
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
 
